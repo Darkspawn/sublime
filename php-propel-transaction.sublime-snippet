@@ -1,0 +1,20 @@
+<snippet>
+    <content><![CDATA[
+\$con = \Propel::getConnection();
+\$con->beginTransaction();
+
+try
+{
+    ${1}
+
+    \$con->commit();
+}
+catch (\Exception \$exception)
+{
+    \$con->rollBack();
+    throw new \Exception(\$exception);
+}
+]]></content>
+    <tabTrigger>transaction</tabTrigger>
+    <scope>source.php</scope>
+</snippet>
